@@ -24,11 +24,11 @@ dotenv.config();
 
 // Tạo connection pool thay vì một kết nối đơn
 const db = mysql.createPool({
-  host: "127.0.0.1",
-  port: 3306,
-  user: "root",
-  password: "",
-  database: "baodientu",
+  host: process.env.DB_HOST|| "127.0.0.1",
+  port: process.env.DB_HOST || 3306,
+  user: process.env.DB_USER ||"root",
+  password: process.env.DB_PASSWORD ||"",
+  database: process.env.DB_NAME || "baodientu",
   // Không giới hạn số lượng truy vấn trong hàng đợi
 });
 
